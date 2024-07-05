@@ -1,0 +1,38 @@
+##服务器配置
+server:
+  port: 8090
+## 数据库连接信息
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 1219
+  mail:
+    # 配置 SMTP 服务器地址
+    host: smtp.qq.com
+    # 发送者邮箱，已开通POP3/SMTP服务的邮箱，也就是你自己的
+    username: #发送者邮箱，已开通POP3/SMTP服务的邮箱，也就是你自己的
+    # 配置密码，注意不是真正的密码，而是刚刚申请到的授权码
+    password: #申请到的授权码
+    # 邮件接收者
+    mailRecipient: #邮件接收者邮箱
+    # 端口号465或587（QQ邮箱发送邮件仅支持587端口协议）
+    port: 587
+    # 默认的邮件编码为UTF-8
+    default-encoding: UTF-8
+    # 配置SSL 加密工厂
+    properties:
+      mail:
+        smtp:
+          socketFactoryClass: javax.net.ssl.SSLSocketFactory
+        #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
+        debug: true
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.leo.springbootbackend.pojo.do
+  configuration:
+    map-underscore-to-camel-case: true
+
+
